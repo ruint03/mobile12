@@ -21,7 +21,7 @@ public class Navheadermain extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Navheadermain.this, Loginlayout.class);
-                startActivity(intent);
+                startActivityForResult(intent,2000);
             }
         });
     }
