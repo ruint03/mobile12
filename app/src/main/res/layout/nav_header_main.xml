@@ -27,7 +27,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="로그인 해주세요"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:onClick="onClick"/>
 
 
 </LinearLayout>

@@ -19,6 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Navheadermain">
+        </activity>
+        <activity android:name=".Loginlayout">
+        </activity>
+        <activity android:name=".Joinlayout">
+        </activity>
+
     </application>
 
 </manifest>
