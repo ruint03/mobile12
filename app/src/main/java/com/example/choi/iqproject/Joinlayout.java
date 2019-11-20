@@ -47,7 +47,7 @@ public class Joinlayout extends AppCompatActivity {
                     reg_name.requestFocus();
                     return;
                 }
-                if (reg_birth.getText().toString().length() >= 0 || reg_birth.getText().toString().length()<8) {
+                if (reg_birth.getText().toString().length() >= 0 && reg_birth.getText().toString().length()<8) {
                     Toast.makeText(getApplicationContext(), "생일을 확인하세요!", Toast.LENGTH_SHORT).show();
                     reg_birth.requestFocus();
                     return;

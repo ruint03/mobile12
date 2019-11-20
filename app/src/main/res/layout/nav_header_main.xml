@@ -29,6 +29,13 @@
         android:text="로그인 해주세요"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:onClick="onClick"/>
+    <TextView
+        android:id="@+id/text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:visibility="invisible"/>
+
 
 
 </LinearLayout>

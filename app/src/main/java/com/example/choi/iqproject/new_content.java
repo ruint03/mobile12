@@ -8,12 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Fivelayout extends Fragment {
+public class new_content extends Fragment {
     View v;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.five_layout, container, false);
+        v = inflater.inflate(R.layout.new_content, container, false);
 return v;
     }
 }

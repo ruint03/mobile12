@@ -16,35 +16,54 @@ public class Loginlayout extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
-        edit_id =  (EditText)findViewById(R.id.idText);
-        edit_pass = (EditText)findViewById(R.id.passwordText);
-        login = (Button)findViewById(R.id.loginButton);
+
+        edit_id = (EditText) findViewById(R.id.idText);
+        edit_pass = (EditText) findViewById(R.id.passwordText);
+        login = (Button) findViewById(R.id.loginButton);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(edit_id.getText().toString().length() == 0){
+                    Toast.makeText(getApplicationContext(), "아이디를 입력하세요!", Toast.LENGTH_SHORT).show();
+                    edit_id.requestFocus();
+                    return;
+                }
+                if(edit_pass.getText().toString().length()==0){
+                    Toast.makeText(getApplicationContext(),"패스워드를 입력하세요!",Toast.LENGTH_SHORT).show();
+                    edit_pass.requestFocus();
+                    return;
+                }
+                Intent result_log = new Intent();
+                result_log.putExtra("id",edit_id.getText().toString());
+                setResult(RESULT_OK, result_log);
                 finish();
             }
         });
 
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode,Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        Log.d("RESULT",requestCode+"");
-        Log.d("RESULT",resultCode+"");
-        Log.d("RESULT",data+"");
 
-        if(requestCode==1000&&resultCode==RESULT_OK){
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("RESULT", requestCode + "");
+        Log.d("RESULT", resultCode + "");
+        Log.d("RESULT", data + "");
+
+        if (requestCode == 1000 && resultCode == RESULT_OK) {
             Toast.makeText(getApplicationContext(), "회원가입을 완료했습니다!", Toast.LENGTH_SHORT).show();
             edit_id.setText(data.getStringExtra("id"));
         }
+
     }
-    public void onClick(View v){
-     switch(v.getId()){
-         case R.id.joinButton:
-             Intent intent = new Intent(this, Joinlayout.class );
-             startActivityForResult(intent,1000);
-     }
+
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.joinButton:
+                Intent intent = new Intent(this, Joinlayout.class);
+                startActivityForResult(intent, 1000);
+        }
     }
+
 
 }
