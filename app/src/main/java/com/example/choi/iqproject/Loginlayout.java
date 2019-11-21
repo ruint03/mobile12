@@ -33,9 +33,9 @@ public class Loginlayout extends AppCompatActivity implements View.OnClickListen
                     edit_pass.requestFocus();
                     return;
                 }
-                Intent result_log = new Intent();
-                result_log.putExtra("id",edit_id.getText().toString());
-                setResult(RESULT_OK, result_log);
+                Intent intent = new Intent();
+                intent.putExtra("id",edit_id.getText().toString());
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
@@ -56,7 +56,7 @@ public class Loginlayout extends AppCompatActivity implements View.OnClickListen
         }
 
     }
-
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.joinButton:
