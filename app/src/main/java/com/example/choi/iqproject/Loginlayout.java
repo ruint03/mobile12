@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Loginlayout extends AppCompatActivity implements View.OnClickListener {
+import java.io.Serializable;
+
+public class Loginlayout extends AppCompatActivity implements View.OnClickListener, Serializable {
     private EditText edit_id, edit_pass;
     private Button login;
 
@@ -23,20 +25,21 @@ public class Loginlayout extends AppCompatActivity implements View.OnClickListen
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edit_id.getText().toString().length() == 0){
+                if (edit_id.getText().toString().length() == 0) {
                     Toast.makeText(getApplicationContext(), "아이디를 입력하세요!", Toast.LENGTH_SHORT).show();
                     edit_id.requestFocus();
                     return;
                 }
-                if(edit_pass.getText().toString().length()==0){
-                    Toast.makeText(getApplicationContext(),"패스워드를 입력하세요!",Toast.LENGTH_SHORT).show();
+                if (edit_pass.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "패스워드를 입력하세요!", Toast.LENGTH_SHORT).show();
                     edit_pass.requestFocus();
                     return;
                 }
-                Intent result_log = new Intent();
-                result_log.putExtra("id",edit_id.getText().toString());
-                setResult(RESULT_OK, result_log);
+                Intent result = new Intent(Loginlayout.this, MainActivity.class);
+                result.putExtra("id", edit_id.getText().toString());
+                setResult(RESULT_OK,result);
                 finish();
+
             }
         });
 
@@ -57,6 +60,7 @@ public class Loginlayout extends AppCompatActivity implements View.OnClickListen
 
     }
 
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.joinButton:

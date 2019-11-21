@@ -3,6 +3,7 @@ package com.example.choi.iqproject;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -105,7 +109,25 @@ public class MainActivity extends AppCompatActivity
         switch (v.getId()){
             case R.id.loginmove:
                 Intent intent = new Intent(this,Loginlayout.class);
-                startActivity(intent);
+                startActivityForResult(intent,2000);
+        }
+    }
+    //로그인 완료시 버튼 제거 및 사용자 계정 정보 출력
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("RESULT", requestCode + "");
+        Log.d("RESULT", resultCode + "");
+        Log.d("RESULT", data + "");
+        Button loginmove = (Button)findViewById(R.id.loginmove);
+        TextView user_id;
+        user_id = (TextView)findViewById(R.id.text_id);
+
+        if (requestCode == 2000 && resultCode == RESULT_OK) {
+            Toast.makeText(getApplicationContext(),"receive",Toast.LENGTH_SHORT).show();
+            loginmove.setVisibility(View.GONE);
+            user_id.setVisibility(View.VISIBLE);
+            user_id.setText(data.getStringExtra("id"));
         }
     }
 }
