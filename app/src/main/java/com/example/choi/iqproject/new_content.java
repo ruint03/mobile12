@@ -40,6 +40,7 @@ public class new_content extends Fragment {
                 }
                 board_title=title.getText().toString();
                 board_content = content.getText().toString();
+                
             }
         });
         return v;

@@ -31,6 +31,7 @@ public class Navheadermain extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(Navheadermain.this, Loginlayout.class);
                 startActivity(intent);
+
             }
 
 
